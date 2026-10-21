@@ -116,71 +116,55 @@
     overflow: hidden;
     pointer-events: none;
   }
-  .glow {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--flare) 62%, transparent) 0%, transparent 68%);
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  .glow-a { width: 72%; aspect-ratio: 1; top: -12%; left: -18%; }
-  .glow-b {
-    width: 56%;
-    aspect-ratio: 1;
-    top: 34%;
-    right: -16%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 70%, transparent) 0%, transparent 70%);
-    animation-duration: 24s;
-    animation-delay: -8s;
-  }
-  .glow-c {
-    width: 48%;
-    aspect-ratio: 1;
-    top: 64%;
-    left: 8%;
-    animation-duration: 21s;
-    animation-delay: -3s;
-  }
   .filament, .apron { display: block; }
   .filament { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .apron { display: none; width: 100%; height: 7.5rem; margin-top: 1.75rem; }
+  .apron { display: none; width: 100%; height: auto; aspect-ratio: 1000 / 240; margin-top: 1.6rem; }
   .filament path, .apron path, .terminus path {
     fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 2;
     vector-effect: non-scaling-stroke;
   }
-  .filament-way, .knot, .filament-far { stroke: var(--accent); fill: none; }
-  .filament-way { stroke-width: 1.25; opacity: 0.55; }
-  .filament .filament-way { stroke-width: 1.75; opacity: 0.85; }
+  .filament-way, .filament-far, .mech, .mark { stroke: var(--accent); fill: none; }
+  .filament-way { stroke-width: 1.5; opacity: 0.55; }
+  .filament .filament-way { stroke-width: 2; opacity: 0.92; }
+  .mech { stroke-width: 1.75; opacity: 0.88; }
+  .mark { stroke-width: 1.5; opacity: 0.7; }
   .filament-far {
-    stroke-width: 1.15;
-    opacity: 0.28;
-    stroke-dasharray: 180 820;
-    animation: run 32s linear infinite;
+    stroke-width: 1.35;
+    opacity: 0.4;
+    stroke-dasharray: 90 910;
+    animation: run 26s linear infinite;
   }
-  .knot { stroke-width: 1.35; opacity: 0.7; }
   .node { fill: var(--flare); }
   .orbit {
     fill: none;
     stroke: var(--flare);
-    stroke-width: 2.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    stroke-width: 2.6;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
     vector-effect: non-scaling-stroke;
-    stroke-dasharray: 58 942;
-    animation: run 4.2s linear infinite;
+    stroke-dasharray: 46 954;
+    animation: run 7.5s linear infinite;
   }
-  .orbit-2 { animation-duration: 6.8s; animation-direction: reverse; }
-  .orbit-3 { animation-duration: 3.4s; }
-  .orbit-4 { animation-duration: 8.6s; animation-direction: reverse; }
-  .orbit-5 { animation-duration: 5.2s; }
+  .orbit-2 { stroke-dasharray: 28 972; animation-duration: 2.6s; }
+  .orbit-3 { stroke-dasharray: 18 982; animation-duration: 3.4s; animation-direction: reverse; }
+  .orbit-4 { stroke-dasharray: 36 964; animation-duration: 4.8s; }
+  .orbit-5 { stroke-dasharray: 64 936; animation-duration: 11s; animation-direction: reverse; }
   .filament-hot {
     stroke: var(--flare);
     stroke-width: 2.75;
-    stroke-dasharray: 72 928;
-    animation: run 5.5s linear infinite;
+    stroke-dasharray: 48 952;
+    animation: run 6.5s linear infinite;
   }
-  .filament .filament-hot { stroke-width: 3; stroke-dasharray: 70 930; }
+  .filament .filament-hot { stroke-width: 3.2; stroke-dasharray: 54 946; }
+  .spin {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: turn 18s linear infinite;
+  }
+  .spin-slow { animation-duration: 28s; animation-direction: reverse; }
   @supports (animation-timeline: scroll()) {
     .filament .filament-hot {
       animation-name: run;
@@ -274,7 +258,7 @@
   }
   nav a:not(.cta-btn)::after { content: none; }
 
-  .hero { position: relative; padding: 1.7rem 0 0.2rem; }
+  .hero { position: relative; padding: 1.7rem 0 0.2rem; counter-reset: plate; }
   h1 {
     font-size: clamp(2.5rem, 5.2vw, 4.2rem);
     font-size: clamp(2.5rem, 10cqi, 4.7rem);
@@ -343,16 +327,136 @@
     line-height: 1.08;
     margin: 0 0 var(--space-md);
   }
+  section:not(.hero):not(.closing) > h2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.75rem;
+    counter-increment: plate;
+  }
   section:not(.hero):not(.closing) > h2::before {
     content: "";
-    display: block;
+    flex: 0 0 100%;
     width: calc(2.25rem + var(--inset) + var(--gutter));
     margin-left: calc(-1 * (var(--inset) + var(--gutter)));
     height: 2px;
     margin-bottom: 0.8rem;
     background: var(--accent);
   }
+  section:not(.hero):not(.closing) > h2::after {
+    content: counter(plate, decimal-leading-zero);
+    color: var(--accent);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    line-height: 1;
+  }
   section p { max-width: var(--measure); margin: 0 0 1rem; text-wrap: pretty; }
+  section:has(> .terms) > p:nth-child(4) {
+    max-width: 16em;
+    margin-top: 1.35rem;
+    padding-top: 0.8rem;
+    border-top: 2px solid var(--flare);
+    color: var(--ink);
+    font-size: clamp(1.35rem, 1.4vw + 1rem, 1.7rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+  .play-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.4rem;
+    max-width: var(--measure);
+    margin: 0.2rem 0 0.85rem;
+  }
+  .play-station {
+    display: block;
+    aspect-ratio: 1;
+    min-height: 2.75rem;
+    padding: 0.4rem;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .play-station svg { display: block; width: 100%; height: 100%; }
+  .play-station path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 2;
+  }
+  .play-station.is-tommy {
+    color: var(--ink);
+    box-shadow: inset 0 0 0 3px var(--flare);
+  }
+  .play-station.is-caught {
+    background: var(--flare);
+    color: var(--accent-ink);
+    box-shadow: none;
+  }
+  .tommy-pointer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    transition: transform 520ms var(--ease), opacity 180ms linear;
+  }
+  .tommy-pointer.is-shown { opacity: 1; }
+  .tommy-arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.35rem;
+    height: 2.35rem;
+    color: var(--flare);
+    filter: drop-shadow(0 0 1px var(--bg)) drop-shadow(0 1px 0 var(--ink));
+  }
+  .tommy-arrow path { fill: currentColor; }
+  .tommy-pointer-name {
+    position: absolute;
+    left: 1.45rem;
+    top: 1.5rem;
+    padding: 0.2rem 0.48rem;
+    background: var(--flare);
+    color: var(--accent-ink);
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .tommy-pointer.is-flip .tommy-pointer-name { left: auto; right: 1.35rem; }
+  .play-status {
+    min-height: 1.5rem;
+    max-width: var(--measure);
+    margin: 0 0 0.85rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .play-status.is-closed { font-weight: 800; }
+  .play-run {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .play-run:disabled { cursor: default; }
 
   .project {
     position: relative;
@@ -414,12 +518,31 @@
   .project p { margin: 0.6rem 0 0; }
   .role { color: var(--muted); font-style: normal; font-weight: 500; font-size: 0.9375rem; }
 
-  .terms { list-style: none; padding: 0; margin: var(--space-lg) 0 0; max-width: var(--measure); }
+  .terms {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0 0;
+    max-width: var(--measure);
+    counter-reset: term;
+  }
   .terms li {
-    padding: 1.1rem 0;
+    position: relative;
+    padding: 1.1rem 0 1.1rem 3.1rem;
     border-top: 1px solid var(--rule);
     color: var(--muted);
     line-height: 1.55;
+    counter-increment: term;
+  }
+  .terms li::before {
+    content: counter(term, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    color: var(--accent);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.25;
   }
   .terms li:last-child { border-bottom: 1px solid var(--rule); }
   .terms strong {
@@ -475,10 +598,7 @@
   }
 
   @keyframes run { to { stroke-dashoffset: -1000; } }
-  @keyframes drift {
-    from { transform: translate3d(0, 0, 0) scale(1); }
-    to { transform: translate3d(14%, 10%, 0) scale(1.18); }
-  }
+  @keyframes turn { to { transform: rotate(360deg); } }
   @keyframes pass {
     0% { transform: translate3d(-140%, 0, 0) skewX(-18deg); opacity: 0; }
     25% { opacity: 1; }
@@ -500,13 +620,21 @@
       bottom: 0;
       left: calc(var(--inset) + var(--page));
       right: max(0px, calc((100vw - var(--spread)) / 2));
-      background: var(--surface);
+      background-color: var(--surface);
+      background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--accent) 28%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--accent) 28%, transparent) 1px, transparent 1px);
+      background-size: 28px 28px;
       pointer-events: none;
     }
     .field {
       left: calc(var(--inset) + var(--page));
       right: max(0px, calc((100vw - var(--spread)) / 2));
       width: auto;
+    }
+    .hero .cta-btn {
+      width: calc(var(--inset) + var(--page));
+      margin-left: calc(-1 * (var(--inset) + var(--gutter)));
     }
   }
   @media (min-width: 800px) {
@@ -534,11 +662,14 @@
     }
   }
   @media (forced-colors: active) {
-    .cta-btn { border: 2px solid ButtonText; }
+    .cta-btn, .play-station, .play-run { border: 2px solid ButtonText; }
     :focus-visible, .cta-btn:focus-visible, a.skip:focus { outline: 3px solid Highlight; }
+    .play-station.is-caught, .tommy-pointer-name { background: Highlight; color: HighlightText; }
+    .tommy-arrow { color: Highlight; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .filament-hot, .filament-far, .orbit, .glow, .cta-btn::after { animation: none; }
+    .filament-hot, .filament-far, .orbit, .spin, .cta-btn::after { animation: none; }
+    .tommy-pointer { transition: none; }
     .filament-hot, .filament-far, .orbit { stroke-dasharray: none; }
     .filament-hot, .orbit { opacity: 0; }
     .cta-btn, .project, nav a, .project-head h3 a, .project::before, a:not(.cta-btn)::after {
@@ -554,28 +685,49 @@
 </head>
 <body>
 <div class="field" aria-hidden="true">
-  <span class="glow glow-a"></span>
-  <span class="glow glow-b"></span>
-  <span class="glow glow-c"></span>
-  <svg class="filament" viewBox="0 0 440 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <path class="filament-far" pathLength="1000" d="M40 80C200 40 400 120 380 240C360 380 60 340 80 480C100 640 400 600 360 760C320 900 80 860 140 980"/>
-    <path class="filament-way" pathLength="1000" d="M160 110C230 170 270 200 280 270C290 350 200 380 150 430C100 480 240 530 290 590C330 650 220 690 170 750C130 820 200 900 240 970"/>
-    <path class="filament-hot" pathLength="1000" d="M160 110C230 170 270 200 280 270C290 350 200 380 150 430C100 480 240 530 290 590C330 650 220 690 170 750C130 820 200 900 240 970"/>
-    <path class="knot" d="M160 76C206 72 210 116 166 128C120 140 112 96 154 84C190 72 194 112 160 116"/>
-    <path class="orbit orbit-1" pathLength="1000" d="M160 76C206 72 210 116 166 128C120 140 112 96 154 84C190 72 194 112 160 116"/>
-    <path class="knot" d="M280 236C326 232 330 276 286 288C240 300 232 256 274 244C310 232 314 272 280 276"/>
-    <path class="orbit orbit-2" pathLength="1000" d="M280 236C326 232 330 276 286 288C240 300 232 256 274 244C310 232 314 272 280 276"/>
-    <path class="knot" d="M150 396C196 392 200 436 156 448C110 460 102 416 144 404C180 392 184 432 150 436"/>
-    <path class="orbit orbit-3" pathLength="1000" d="M150 396C196 392 200 436 156 448C110 460 102 416 144 404C180 392 184 432 150 436"/>
-    <path class="knot" d="M290 556C336 552 340 596 296 608C250 620 242 576 284 564C320 552 324 592 290 596"/>
-    <path class="orbit orbit-4" pathLength="1000" d="M290 556C336 552 340 596 296 608C250 620 242 576 284 564C320 552 324 592 290 596"/>
-    <path class="knot" d="M170 716C216 712 220 756 176 768C130 780 122 736 164 724C200 712 204 752 170 756"/>
-    <path class="orbit orbit-5" pathLength="1000" d="M170 716C216 712 220 756 176 768C130 780 122 736 164 724C200 712 204 752 170 756"/>
-    <rect class="node" x="156" y="106" width="9" height="9"/>
-    <rect class="node" x="276" y="266" width="9" height="9"/>
-    <rect class="node" x="146" y="426" width="9" height="9"/>
-    <rect class="node" x="286" y="586" width="9" height="9"/>
-    <rect class="node" x="166" y="746" width="9" height="9"/>
+  <svg class="filament" viewBox="0 0 480 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <path class="mark" d="M18 30 H42 M30 18 V42 M438 18 H462 M450 6 V30 M18 958 H42 M30 946 V970 M438 970 H462 M450 958 V982"/>
+    <path class="filament-far" pathLength="1000" d="M30 48 V952 H450 V48"/>
+    <path class="mech" d="M146 64 H334 V236 H146 Z"/>
+    <path class="mech" d="M146 92 V64 H174 M306 64 H334 V92 M334 208 V236 H306 M174 236 H146 V208"/>
+    <path class="mech" d="M168 92 H312 V208 H168 Z"/>
+    <path class="mech" d="M184 156 H228 M184 172 H244 M184 188 H214 M198 156 V204"/>
+    <path class="orbit orbit-1" pathLength="1000" d="M146 64 H334 V236 H146 Z"/>
+    <g class="spin">
+      <path class="mech" d="M240 118 V182 M208 150 H272"/>
+    </g>
+    <path class="mech" d="M72 330 H408"/>
+    <path class="mech" d="M96 308 V352 M136 316 V344 M176 304 V356 M216 316 V344 M256 308 V352 M296 316 V344 M336 304 V356 M376 316 V344"/>
+    <path class="mech" d="M72 300 V318 M72 300 H118 M408 300 V318 M408 300 H362"/>
+    <rect class="node" x="72" y="324" width="40" height="12"/>
+    <path class="orbit orbit-2" pathLength="1000" d="M72 330 H408"/>
+    <path class="mech" d="M92 424 H206 V596 H92 Z"/>
+    <path class="mech" d="M112 448 H186 V572 H112 Z"/>
+    <path class="mech" d="M274 424 H388 V596 H274 Z"/>
+    <path class="mech" d="M294 448 H368 V572 H294 Z"/>
+    <path class="mech" d="M206 510 H274"/>
+    <path class="mech" d="M258 498 L274 510 L258 522"/>
+    <rect class="node" x="140" y="502" width="12" height="12"/>
+    <rect class="node" x="322" y="502" width="12" height="12"/>
+    <path class="orbit orbit-3" pathLength="1000" d="M108 510 H372"/>
+    <path class="mech" d="M104 690 a46 46 0 1 0 92 0 a46 46 0 1 0 -92 0"/>
+    <path class="mech" d="M128 690 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0"/>
+    <path class="mech" d="M286 748 a46 46 0 1 0 92 0 a46 46 0 1 0 -92 0"/>
+    <path class="mech" d="M310 748 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0"/>
+    <path class="mech" d="M196 690 H240 V748 H286"/>
+    <rect class="node" x="144" y="684" width="12" height="12"/>
+    <rect class="node" x="326" y="742" width="12" height="12"/>
+    <path class="orbit orbit-4" pathLength="1000" d="M196 690 H240 V748 H286"/>
+    <path class="mech" d="M156 812 H324 V968 H156 Z"/>
+    <path class="mech" d="M156 836 V812 H180 M300 812 H324 V836 M324 944 V968 H300 M180 968 H156 V944"/>
+    <g class="spin spin-slow">
+      <path class="mech" d="M214 854 H286 V926 H214 Z"/>
+      <path class="mech" d="M250 854 V926 M214 890 H286"/>
+    </g>
+    <rect class="node" x="244" y="884" width="12" height="12"/>
+    <path class="orbit orbit-5" pathLength="1000" d="M156 812 H324 V968 H156 Z"/>
+    <path class="filament-way" pathLength="1000" d="M240 40 V972"/>
+    <path class="filament-hot" pathLength="1000" d="M240 40 V972"/>
   </svg>
 </div>
 <div class="wrap">
@@ -594,9 +746,26 @@
     <h1>I build and ship AI&#8209;powered products end to end.</h1>
     <p>Fixed scope, fixed price, weeks not months. 6+ years shipping production systems, 5 peer-reviewed publications in AI, NLP and health informatics.</p>
     <a class="cta-btn" href="mailto:ajiferukeolatommy@gmail.com">Email me about your project</a>
-    <svg class="apron" viewBox="0 0 1000 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <path class="filament-way" pathLength="1000" d="M10 100C80 100 110 30 180 40C250 50 230 120 170 88C130 64 210 24 300 58C420 104 450 150 540 108C660 52 710 24 800 78C880 124 910 48 990 84"/>
-      <path class="filament-hot" pathLength="1000" d="M10 100C80 100 110 30 180 40C250 50 230 120 170 88C130 64 210 24 300 58C420 104 450 150 540 108C660 52 710 24 800 78C880 124 910 48 990 84"/>
+    <svg class="apron" viewBox="0 0 1000 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path class="mech" d="M28 28 H168 V212 H28 Z"/>
+      <path class="mech" d="M28 52 V28 H52 M144 28 H168 V52 M168 188 V212 H144 M52 212 H28 V188"/>
+      <path class="mech" d="M52 56 H144 V184 H52 Z"/>
+      <path class="orbit orbit-1" pathLength="1000" d="M28 28 H168 V212 H28 Z"/>
+      <path class="mech" d="M206 120 H390"/>
+      <path class="mech" d="M226 96 V144 M266 104 V136 M306 96 V144 M346 104 V136"/>
+      <path class="orbit orbit-2" pathLength="1000" d="M206 120 H390"/>
+      <path class="mech" d="M420 40 H508 V200 H420 Z"/>
+      <path class="mech" d="M528 40 H616 V200 H528 Z"/>
+      <path class="mech" d="M508 120 H528"/>
+      <path class="orbit orbit-3" pathLength="1000" d="M440 120 H596"/>
+      <path class="mech" d="M676 120 a52 52 0 1 0 104 0 a52 52 0 1 0 -104 0"/>
+      <path class="mech" d="M704 120 a24 24 0 1 0 48 0 a24 24 0 1 0 -48 0"/>
+      <path class="orbit orbit-4" pathLength="1000" d="M676 120 a52 52 0 1 0 104 0 a52 52 0 1 0 -104 0"/>
+      <path class="mech" d="M830 36 H972 V204 H830 Z"/>
+      <path class="mech" d="M862 68 H940 V172 H862 Z"/>
+      <path class="orbit orbit-5" pathLength="1000" d="M830 36 H972 V204 H830 Z"/>
+      <path class="filament-way" pathLength="1000" d="M16 120 H984"/>
+      <path class="filament-hot" pathLength="1000" d="M16 120 H984"/>
     </svg>
   </section>
 
@@ -639,6 +808,34 @@
     <p>6+ years building production software across startups and freelance. Recent client work includes AI projects for US companies — NLP pipelines, LLM-backed features and workflow automation — and contract engineering on a US startup accelerator's web platform. Research background: 5 peer-reviewed publications in AI, NLP and health informatics.</p>
   </section>
 
+  <section class="play">
+    <h2>Try the wire</h2>
+    <p>I go first. Then you. We take turns until the route closes.</p>
+    <div class="play-board">
+      <button type="button" class="play-station" data-name="Frame" aria-label="Frame" aria-pressed="false">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 8 H32 V32 H8 Z M20 14 V26 M14 20 H26"/></svg>
+      </button>
+      <button type="button" class="play-station" data-name="Scale" aria-label="Scale" aria-pressed="false">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 20 H33 M12 13 V27 M18 16 V24 M24 13 V27 M30 16 V24"/></svg>
+      </button>
+      <button type="button" class="play-station" data-name="Transfer" aria-label="Transfer" aria-pressed="false">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 12 H16 V28 H6 Z M24 12 H34 V28 H24 Z M16 20 H24 M21 16 L24 20 L21 24"/></svg>
+      </button>
+      <button type="button" class="play-station" data-name="Rings" aria-label="Rings" aria-pressed="false">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 20 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M20 20 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0"/></svg>
+      </button>
+      <button type="button" class="play-station" data-name="Stamp" aria-label="Stamp" aria-pressed="false">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 8 H32 V32 H8 Z M15 15 H25 V25 H15 Z"/></svg>
+      </button>
+      <span class="tommy-pointer" aria-hidden="true">
+        <svg class="tommy-arrow" viewBox="0 0 24 24"><path d="M1 1 L1 17 L6.2 12.2 L10.4 20.2 L13.2 18.8 L9 11 L17 11 Z"/></svg>
+        <span class="tommy-pointer-name">Tommy</span>
+      </span>
+    </div>
+    <p class="play-status" aria-live="polite">I'll go first.</p>
+    <button type="button" class="play-run">Sit down</button>
+  </section>
+
   <section class="closing">
     <h2>Have an AI feature you need shipped?</h2>
     <p>Send a short note about what you're building. I'll tell you whether it's a 1-week or 4-week job and what it costs.</p>
@@ -647,13 +844,209 @@
   </main>
 
   <footer>
-    <svg class="terminus" viewBox="0 0 140 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <path class="filament-way" pathLength="1000" d="M8 36C28 8 62 6 70 28C78 50 48 58 34 40C22 24 48 16 92 30C112 38 124 28 132 32"/>
-      <path class="filament-hot" pathLength="1000" d="M8 36C28 8 62 6 70 28C78 50 48 58 34 40C22 24 48 16 92 30C112 38 124 28 132 32"/>
+    <svg class="terminus" viewBox="0 0 140 56" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path class="mech" d="M4 4 H136 V52 H4 Z"/>
+      <path class="mech" d="M4 16 V4 H16 M124 4 H136 V16 M136 40 V52 H124 M16 52 H4 V40"/>
+      <path class="mech" d="M36 16 H104 V40 H36 Z"/>
+      <path class="filament-hot" pathLength="1000" d="M4 4 H136 V52 H4 Z"/>
     </svg>
     <p>Tommy Ajiferuke<br>(Oluwatomiwa Ajiferuke) &middot; Tomwiser LLC</p>
   </footer>
 
 </div>
+<script>
+(function () {
+  var board = document.querySelector(".play-board");
+  var run = document.querySelector(".play-run");
+  var status = document.querySelector(".play-status");
+  var pointer = document.querySelector(".tommy-pointer");
+  if (!board || !run || !status || !pointer) return;
+  var stations = Array.prototype.slice.call(board.querySelectorAll(".play-station"));
+  var lines = {
+    Frame: { mine: "Frame is mine. I like a closed start.", yours: "You took the frame. A closed box." },
+    Scale: { mine: "I'll take the scale. The number matters.", yours: "You took the scale. You want the number first." },
+    Transfer: { mine: "Transfer. That's the handoff.", yours: "You took transfer. You want it in your name." },
+    Rings: { mine: "Rings. Two live products, two loops.", yours: "You took the rings. You looked at both." },
+    Stamp: { mine: "Stamp. I usually close.", yours: "You took the stamp. You want it finished." }
+  };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var moveMs = reduce ? 0 : 720;
+  var replyMs = reduce ? 0 : 900;
+  var phase = "idle";
+  var hint = null;
+  var round = 0;
+  var misses = 0;
+  var talks = 0;
+  var timer = 0;
+  var nudge = 0;
+  var pep = [
+    "We didn't meet. I like your pick anyway. Come find me on the ",
+    "Ha, different station. That's fine. I'm pointing at the ",
+    "Still a good game. Meet me on the "
+  ];
+
+  function say(text, closed) {
+    status.textContent = text;
+    status.classList.toggle("is-closed", !!closed);
+  }
+
+  function nameOf(station) {
+    return station.getAttribute("data-name");
+  }
+
+  function openStations() {
+    return stations.filter(function (station) {
+      return !station.classList.contains("is-tommy") && !station.classList.contains("is-caught");
+    });
+  }
+
+  function pick(list) {
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function pointAt(station) {
+    var boardBox = board.getBoundingClientRect();
+    var box = station.getBoundingClientRect();
+    var x = box.left - boardBox.left + box.width * 0.22;
+    var y = box.top - boardBox.top + box.height * 0.28;
+    pointer.classList.toggle("is-flip", x + 92 > boardBox.width);
+    pointer.classList.add("is-shown");
+    pointer.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+  }
+
+  function finish() {
+    phase = "done";
+    run.disabled = false;
+    run.textContent = "Play again";
+    say("Route closed. I had the last mark. Email me when you want a real week.", true);
+  }
+
+  function clearWait() {
+    window.clearTimeout(timer);
+    window.clearTimeout(nudge);
+  }
+
+  function armNudge(ticket) {
+    window.clearTimeout(nudge);
+    nudge = window.setTimeout(function () {
+      if (ticket !== round || phase !== "you") return;
+      say("Still here. Take the station under my pointer, or surprise me.");
+      if (hint) pointAt(hint);
+      nudge = window.setTimeout(function () {
+        if (ticket !== round || phase !== "you") return;
+        say("No rush and no score. Pick any open one. I'm not leaving.");
+        if (hint) pointAt(hint);
+      }, 5200);
+    }, 4800);
+  }
+
+  function handOff(ticket, sentence) {
+    var left = openStations();
+    if (!left.length) return finish();
+    hint = pick(left);
+    pointAt(hint);
+    phase = "you";
+    run.disabled = true;
+    run.textContent = "Your turn";
+    say(sentence + nameOf(hint).toLowerCase() + ".");
+    armNudge(ticket);
+  }
+
+  function tommyPlay(intro) {
+    var ticket = round;
+    var open = openStations();
+    if (!open.length) return finish();
+    var choice = pick(open);
+    phase = "tommy";
+    clearWait();
+    run.disabled = true;
+    run.textContent = "Tommy's move";
+    say(intro || "Watch my pointer.");
+    pointAt(choice);
+    timer = window.setTimeout(function () {
+      if (ticket !== round) return;
+      var taken = nameOf(choice);
+      choice.classList.add("is-tommy");
+      choice.setAttribute("aria-pressed", "true");
+      choice.setAttribute("aria-label", taken + ", Tommy");
+      say(lines[taken].mine);
+      timer = window.setTimeout(function () {
+        if (ticket !== round) return;
+        handOff(ticket, lines[taken].mine + " Your turn. I'm pointing at the ");
+      }, moveMs);
+    }, moveMs);
+  }
+
+  function resetBoard() {
+    round += 1;
+    clearWait();
+    hint = null;
+    misses = 0;
+    talks = 0;
+    phase = "idle";
+    pointer.classList.remove("is-shown");
+    stations.forEach(function (station) {
+      station.classList.remove("is-tommy", "is-caught");
+      station.setAttribute("aria-pressed", "false");
+      station.setAttribute("aria-label", nameOf(station));
+    });
+  }
+
+  stations.forEach(function (station) {
+    station.addEventListener("click", function () {
+      if (phase !== "you") return;
+      var ticket = round;
+      if (station.classList.contains("is-tommy")) {
+        say("That one's mine. You're close. Take an open station.");
+        if (hint) pointAt(hint);
+        armNudge(ticket);
+        return;
+      }
+      if (station.classList.contains("is-caught")) return;
+      clearWait();
+      var followed = station === hint;
+      var stationName = nameOf(station);
+      station.classList.add("is-caught");
+      station.setAttribute("aria-pressed", "true");
+      station.setAttribute("aria-label", stationName + ", yours");
+      if (!openStations().length) {
+        phase = "done";
+        say(lines[stationName].yours + " Route closed.");
+        finish();
+        return;
+      }
+      if (followed) {
+        misses = 0;
+        phase = "tommy";
+        say("You took the one I was pointing at. That's the meeting. " + lines[stationName].yours);
+        timer = window.setTimeout(function () {
+          if (ticket !== round) return;
+          tommyPlay();
+        }, replyMs);
+        return;
+      }
+      misses += 1;
+      say(lines[stationName].yours);
+      timer = window.setTimeout(function () {
+        if (ticket !== round) return;
+        if (misses >= 2) {
+          misses = 0;
+          tommyPlay("We keep missing, and that's alright. Watch my pointer.");
+          return;
+        }
+        handOff(ticket, pep[talks % pep.length]);
+        talks += 1;
+      }, replyMs);
+    });
+  });
+
+  run.addEventListener("click", function () {
+    if (phase === "tommy" || phase === "you") return;
+    resetBoard();
+    run.disabled = true;
+    tommyPlay();
+  });
+})();
+</script>
 </body>
 </html>
