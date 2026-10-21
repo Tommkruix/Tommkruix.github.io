@@ -810,6 +810,7 @@
 
   <section class="play">
     <h2>Try the wire</h2>
+    <p>Built small and finished, the way I build everything on this page.</p>
     <p>I go first. Then you. We take turns until the route closes.</p>
     <div class="play-board">
       <button type="button" class="play-station" data-name="Frame" aria-label="Frame" aria-pressed="false">
@@ -1045,6 +1046,20 @@
     resetBoard();
     run.disabled = true;
     tommyPlay();
+  });
+})();
+</script>
+<script data-goatcounter="https://tommkruix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!link) return;
+    try {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        window.goatcounter.count({ path: "email-click", event: true });
+      }
+    } catch (err) {}
   });
 })();
 </script>
