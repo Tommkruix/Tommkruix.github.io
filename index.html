@@ -5,140 +5,497 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tommy Ajiferuke, AI product engineer</title>
 <meta name="description" content="I build and ship AI-powered products end to end. Fixed scope, fixed price, weeks not months.">
+<link rel="canonical" href="https://tommkruix.github.io/">
+<meta name="author" content="Tommy Ajiferuke">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tommy Ajiferuke">
+<meta property="og:title" content="Tommy Ajiferuke, AI product engineer">
+<meta property="og:description" content="I build and ship AI-powered products end to end. Fixed scope, fixed price, weeks not months.">
+<meta property="og:url" content="https://tommkruix.github.io/">
+<meta property="og:image" content="https://tommkruix.github.io/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tommy Ajiferuke, AI product engineer. I build and ship AI-powered products end to end.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tommy Ajiferuke, AI product engineer">
+<meta name="twitter:description" content="I build and ship AI-powered products end to end. Fixed scope, fixed price, weeks not months.">
+<meta name="twitter:image" content="https://tommkruix.github.io/og-image.png">
+<meta name="twitter:image:alt" content="Tommy Ajiferuke, AI product engineer">
+<meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0A0E" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Tommy Ajiferuke","alternateName":"Oluwatomiwa Ajiferuke","jobTitle":"AI product engineer","description":"I build and ship AI-powered products end to end. Fixed scope, fixed price, weeks not months.","url":"https://tommkruix.github.io/","image":"https://tommkruix.github.io/og-image.png","email":"mailto:ajiferukeolatommy@gmail.com","knowsAbout":["Artificial Intelligence","Large Language Models","Natural Language Processing","Workflow automation","Product engineering","Health informatics"],"worksFor":{"@type":"Organization","name":"Tomwiser LLC"},"sameAs":["https://github.com/Tommkruix","https://www.linkedin.com/in/ajiferuke-oluwatomiwa-513335166"]}
+</script>
 <style>
   :root {
     color-scheme: light dark;
-    --bg: #FAF7EF;
-    --ink: #26262A;
-    --muted: #6A675F;
-    --accent: #8F6B14;
-    --accent-ink: #26262A;
-    --btn-bg: #E6B93F;
-    --btn-ink: #26262A;
-    --rule: #E5DFCF;
+    --bg: #F7F4EE;
+    --ink: #12110E;
+    --muted: #514C45;
+    --accent: #8A2E1A;
+    --accent-ink: #1A0C09;
+    --flare: #E23B16;
+    --btn-bg: #16140F;
+    --btn-ink: #F6F3EC;
+    --rule: #DDD6CB;
+    --surface: #E7E1D6;
+    --ease: cubic-bezier(0.16, 0.84, 0.3, 1);
+    --space-sm: 0.75rem;
+    --space-md: 1.15rem;
+    --space-lg: 1.7rem;
+    --space-xl: 2.4rem;
+    --space-2xl: 3.6rem;
+    --measure: 38rem;
+    --page: 46rem;
+    --gutter: 1.2rem;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1B1B1E;
-      --ink: #EFEDE6;
-      --muted: #A3A096;
-      --accent: #E3BB4F;
-      --accent-ink: #26262A;
-      --btn-bg: #E3BB4F;
-      --btn-ink: #26262A;
-      --rule: #313134;
+      --bg: #0B0A0E;
+      --ink: #F6F3EE;
+      --muted: #C9C2B6;
+      --accent: #FF8F6A;
+      --accent-ink: #1A0C09;
+      --flare: #FF5A3C;
+      --btn-bg: #FF7A55;
+      --btn-ink: #1A0C09;
+      --rule: #2E2A30;
+      --surface: #161318;
     }
   }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html {
+    overflow-x: clip;
+    scroll-padding-top: 1rem;
+    scrollbar-color: var(--accent) transparent;
+  }
   *, *::before, *::after { box-sizing: inherit; }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 32%, var(--bg));
+    color: var(--ink);
+  }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
     font-family: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
     font-size: 1.0625rem;
+    font-optical-sizing: auto;
     line-height: 1.6;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   .wrap {
-    max-width: 42rem;
+    position: relative;
+    z-index: 1;
+    max-width: var(--page);
     margin: 0 auto;
-    padding: 1.5rem 1.25rem 4rem;
+    padding: 0 var(--gutter) 4.5rem;
   }
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .filament, .apron { display: block; overflow: visible; }
+  .filament {
+    position: fixed;
+    top: 1.1rem;
+    right: 0.4rem;
+    width: calc((100vw - var(--page)) / 2 - 0.6rem);
+    height: calc(100vh - 2.4rem);
+    height: calc(100dvh - 2.4rem);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .apron { display: none; width: 100%; height: 7.5rem; margin-top: 1.75rem; }
+  .filament path, .apron path, .terminus path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .filament-way { stroke: var(--accent); stroke-width: 1.25; opacity: 0.38; }
+  .filament-hot {
+    stroke: var(--flare);
+    stroke-width: 2.25;
+    stroke-dasharray: 72 928;
+    animation: run 5.5s linear infinite;
+  }
+  @supports (animation-timeline: scroll()) {
+    .filament .filament-hot {
+      animation-name: run;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-duration: auto;
+      animation-timeline: scroll(root block);
+    }
+  }
+  main { min-width: 0; container-type: inline-size; }
+  a:not(.cta-btn) {
+    position: relative;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  a:not(.cta-btn)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.08em;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 220ms var(--ease);
+  }
+  .project-head h3 a {
+    display: inline-block;
+    transition: transform 220ms var(--ease);
+  }
+  .project-head h3 a:not(.cta-btn)::after { transform: scaleX(1); }
+  .project:hover h3 a,
+  .project:focus-within h3 a { transform: translate3d(4px, 0, 0); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  a.skip {
+    position: absolute;
+    left: var(--gutter);
+    top: 0.4rem;
+    z-index: 5;
+    padding: 0.6rem 0.9rem;
+    background: var(--btn-bg);
+    color: var(--btn-ink);
+    text-decoration: none;
+    transform: translateY(-160%);
+  }
+  a.skip:focus {
+    transform: none;
+    outline: 3px solid var(--btn-ink);
+    outline-offset: 3px;
+  }
+  a.skip::after { content: none; }
 
   header {
+    position: relative;
+    z-index: 4;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
     flex-wrap: wrap;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--rule);
+    align-items: last baseline;
+    column-gap: 2rem;
+    row-gap: 0.2rem;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    background: none;
   }
-  .name { font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; }
-  nav { display: flex; gap: 1.25rem; font-size: 0.95rem; }
-
-  .hero { padding: 4rem 0 2.5rem; }
-  h1 {
-    font-size: clamp(2rem, 7.5vw, 3.25rem);
+  .name {
     font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
-    margin: 0 0 1.5rem;
-    max-width: 16ch;
+    font-size: clamp(2.15rem, 4.6vw, 3.35rem);
+    letter-spacing: -0.045em;
+    line-height: 1.15;
   }
-  .hero p { max-width: 36rem; margin: 0 0 2rem; color: var(--muted); }
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  nav a:not(.cta-btn) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.7rem 0.2rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.28em;
+  }
+  nav a:not(.cta-btn)::after { content: none; }
 
+  .hero { position: relative; padding: 1.7rem 0 0.2rem; }
+  h1 {
+    font-size: clamp(2.5rem, 5.2vw, 4.2rem);
+    font-size: clamp(2.5rem, 10cqi, 4.7rem);
+    font-weight: 800;
+    letter-spacing: -0.048em;
+    line-height: 1.02;
+    margin: 0 0 1.2rem;
+    max-width: 11em;
+    text-wrap: wrap;
+  }
+  @media (max-width: 400px) {
+    h1 { text-wrap: balance; }
+  }
+  .hero p {
+    max-width: 34rem;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
   .cta-btn {
+    position: relative;
     display: inline-block;
+    overflow: hidden;
     background: var(--btn-bg);
     color: var(--btn-ink);
     font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    border-radius: 999px;
+    letter-spacing: -0.011em;
+    padding: 0.9rem 1.35rem;
+    border-radius: 0.2rem;
     text-decoration: none;
+    transition: transform 180ms var(--ease);
   }
-  .cta-btn:hover { filter: brightness(1.08); }
-
+  .cta-btn::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: 0;
+    width: 42%;
+    background: linear-gradient(100deg, transparent, color-mix(in srgb, #fff 70%, transparent), transparent);
+    transform: translate3d(-180%, 0, 0) skewX(-18deg);
+    pointer-events: none;
+  }
+  .cta-btn:hover { transform: translate3d(0, -3px, 0); box-shadow: 0 0 0 1px var(--flare), 0 12px 28px color-mix(in srgb, var(--flare) 32%, transparent); }
+  .cta-btn:hover::after { animation: pass 0.48s var(--ease); }
+  .cta-btn:active { transform: translate3d(0, 0, 0); }
+  .cta-btn:focus-visible {
+    outline: 3px solid var(--btn-ink);
+    outline-offset: -6px;
+  }
+  .hero .cta-btn {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 1.2rem max(var(--gutter), calc((100vw - var(--page)) / 2 + var(--gutter)));
+    border-radius: 0;
+  }
+  section:not(.hero):not(.closing) { padding-top: var(--space-2xl); }
   h2 {
-    font-size: 1.05rem;
+    font-size: clamp(1.55rem, 1.1vw + 1.15rem, 1.9rem);
     font-weight: 800;
-    letter-spacing: -0.01em;
-    margin: 3.5rem 0 1rem;
+    letter-spacing: -0.034em;
+    line-height: 1.08;
+    margin: 0 0 var(--space-md);
   }
-  section p { max-width: 38rem; }
+  section:not(.hero):not(.closing) > h2::before {
+    content: "";
+    display: block;
+    width: 2.25rem;
+    height: 2px;
+    margin-bottom: 0.8rem;
+    background: var(--accent);
+  }
+  section p { max-width: var(--measure); margin: 0 0 1rem; text-wrap: pretty; }
 
-  .project { padding: 1.5rem 0; }
+  .project {
+    position: relative;
+    padding: 1.45rem 0 1.45rem 1.1rem;
+    border-left: 1px solid var(--rule);
+    transition: transform 220ms var(--ease);
+  }
   .project + .project { border-top: 1px solid var(--rule); }
+  .project::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(var(--flare), var(--accent));
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 240ms var(--ease);
+  }
+  .project:hover,
+  .project:focus-within { transform: translate3d(6px, 0, 0); }
+  .project:hover::before,
+  .project:focus-within::before { transform: scaleY(1); }
   .project-head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
     flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
   }
-  .project-head h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; }
-  .status { font-size: 0.9rem; font-weight: 500; color: var(--accent); white-space: nowrap; }
+  .project-head h3 {
+    font-size: clamp(1.4rem, 1vw + 1.05rem, 1.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .status::before {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--accent);
+    flex: none;
+  }
   .status.quiet { color: var(--muted); }
-  .project p { margin: 0.4rem 0; }
-  .role { color: var(--muted); font-style: italic; font-size: 0.95rem; }
+  .status.quiet::before { background: var(--muted); }
+  .project p { margin: 0.6rem 0 0; }
+  .role { color: var(--muted); font-style: normal; font-weight: 500; font-size: 0.9375rem; }
 
-  .terms { list-style: none; padding: 0; margin: 1.5rem 0 0; max-width: 38rem; }
-  .terms li { padding: 0.85rem 0; border-top: 1px solid var(--rule); }
-  .terms strong { font-weight: 800; }
+  .terms { list-style: none; padding: 0; margin: var(--space-lg) 0 0; max-width: var(--measure); }
+  .terms li {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .terms li:last-child { border-bottom: 1px solid var(--rule); }
+  .terms strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.022em;
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+  }
 
-  .closing { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
-  .closing h2 { margin-top: 0; font-size: 1.5rem; max-width: 24ch; }
+  .closing {
+    position: relative;
+    margin-top: var(--space-2xl);
+    padding: 1.7rem 1.3rem 1.9rem;
+    background-color: var(--surface);
+    background-image: linear-gradient(90deg, var(--flare), var(--accent) 36%, transparent 78%);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    border-radius: 0.45rem;
+  }
+  .closing h2 {
+    margin-top: 0;
+    font-size: clamp(1.9rem, 2vw + 1.2rem, 2.7rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    max-width: 14ch;
+  }
+  .closing p { margin-bottom: 1.4rem; }
+  .closing .cta-btn { display: flex; width: 100%; padding: 1rem 1.1rem; }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4.8rem;
+  }
+  .terminus {
+    display: block;
+    width: 7.5rem;
+    height: 2.5rem;
+    margin: 0 0 0.85rem;
+    overflow: visible;
+  }
+  footer p {
+    max-width: 100%;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
 
-  footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.9rem; }
+  @keyframes run { to { stroke-dashoffset: -1000; } }
+  @keyframes pass {
+    0% { transform: translate3d(-140%, 0, 0) skewX(-18deg); opacity: 0; }
+    25% { opacity: 1; }
+    100% { transform: translate3d(320%, 0, 0) skewX(-18deg); opacity: 0; }
+  }
+  @media (max-width: 62rem) {
+    .filament { display: none; }
+    .apron { display: block; }
+  }
+  @media (min-width: 800px) {
+    footer { align-items: flex-end; }
+    footer p { text-align: right; }
+  }
+  @media (min-width: 900px) {
+    :root { --gutter: 2rem; }
+    .hero { padding-top: 2.2rem; }
+  }
+  @media (prefers-contrast: more) {
+    :root {
+      --muted: #3C3832;
+      --accent: #641F10;
+      --flare: #8E2A12;
+    }
+  }
+  @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+    :root {
+      --ink: #FFFFFF;
+      --muted: #F6F1E8;
+      --accent: #FFD5C8;
+      --flare: #FFC2B0;
+      --btn-bg: #FFD5C8;
+    }
+  }
+  @media (forced-colors: active) {
+    .cta-btn { border: 2px solid ButtonText; }
+    :focus-visible, .cta-btn:focus-visible, a.skip:focus { outline: 3px solid Highlight; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .filament-hot, .cta-btn::after { animation: none; }
+    .filament-hot { stroke-dasharray: none; opacity: 0; }
+    .cta-btn, .project, nav a, .project-head h3 a, .project::before, a:not(.cta-btn)::after {
+      transition: none;
+    }
+    .cta-btn:hover, .cta-btn:active,
+    .project:hover, .project:focus-within,
+    .project:hover h3 a, .project:focus-within h3 a {
+      transform: none;
+    }
+  }
 </style>
 </head>
 <body>
+<svg class="filament" viewBox="0 0 200 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <path class="filament-way" pathLength="1000" d="M110 28C168 34 178 118 118 142C52 166 48 72 108 62C178 78 188 214 124 292C36 392 32 472 128 552C186 624 158 748 84 820C28 882 58 952 138 986"/>
+  <path class="filament-hot" pathLength="1000" d="M110 28C168 34 178 118 118 142C52 166 48 72 108 62C178 78 188 214 124 292C36 392 32 472 128 552C186 624 158 748 84 820C28 882 58 952 138 986"/>
+</svg>
 <div class="wrap">
+  <a class="skip" href="#content">Skip to content</a>
 
   <header>
-    <span class="name">Tommy Ajiferuke</span>
-    <nav>
+    <span class="name">Tommy<br>Ajiferuke</span>
+    <nav aria-label="Profiles">
       <a href="https://github.com/Tommkruix">GitHub</a>
       <a href="https://www.linkedin.com/in/ajiferuke-oluwatomiwa-513335166">LinkedIn</a>
     </nav>
   </header>
 
+  <main id="content">
   <section class="hero">
     <h1>I build and ship AI&#8209;powered products end to end.</h1>
     <p>Fixed scope, fixed price, weeks not months. 6+ years shipping production systems, 5 peer-reviewed publications in AI, NLP and health informatics.</p>
     <a class="cta-btn" href="mailto:ajiferukeolatommy@gmail.com">Email me about your project</a>
+    <svg class="apron" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true">
+      <path class="filament-way" pathLength="1000" d="M10 100C80 100 110 30 180 40C250 50 230 120 170 88C130 64 210 24 300 58C420 104 450 150 540 108C660 52 710 24 800 78C880 124 910 48 990 84"/>
+      <path class="filament-hot" pathLength="1000" d="M10 100C80 100 110 30 180 40C250 50 230 120 170 88C130 64 210 24 300 58C420 104 450 150 540 108C660 52 710 24 800 78C880 124 910 48 990 84"/>
+    </svg>
   </section>
 
   <section>
@@ -184,9 +541,14 @@
     <p>Send a short note about what you're building. I'll tell you whether it's a 1-week or 4-week job and what it costs.</p>
     <a class="cta-btn" href="mailto:ajiferukeolatommy@gmail.com">Email me</a>
   </section>
+  </main>
 
   <footer>
-    <p>Tommy Ajiferuke (Oluwatomiwa Ajiferuke) &middot; Tomwiser LLC</p>
+    <svg class="terminus" viewBox="0 0 140 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path class="filament-way" pathLength="1000" d="M8 36C28 8 62 6 70 28C78 50 48 58 34 40C22 24 48 16 92 30C112 38 124 28 132 32"/>
+      <path class="filament-hot" pathLength="1000" d="M8 36C28 8 62 6 70 28C78 50 48 58 34 40C22 24 48 16 92 30C112 38 124 28 132 32"/>
+    </svg>
+    <p>Tommy Ajiferuke<br>(Oluwatomiwa Ajiferuke) &middot; Tomwiser LLC</p>
   </footer>
 
 </div>
