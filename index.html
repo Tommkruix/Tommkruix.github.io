@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tommy Ajiferuke, AI product engineer</title>
+<meta name="description" content="I build and ship AI-powered products end to end. Fixed scope, fixed price, weeks not months.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #FAF7EF;
+    --ink: #26262A;
+    --muted: #6A675F;
+    --accent: #8F6B14;
+    --accent-ink: #26262A;
+    --btn-bg: #E6B93F;
+    --btn-ink: #26262A;
+    --rule: #E5DFCF;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1B1B1E;
+      --ink: #EFEDE6;
+      --muted: #A3A096;
+      --accent: #E3BB4F;
+      --accent-ink: #26262A;
+      --btn-bg: #E3BB4F;
+      --btn-ink: #26262A;
+      --rule: #313134;
+    }
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .name { font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 1.25rem; font-size: 0.95rem; }
+
+  .hero { padding: 4rem 0 2.5rem; }
+  h1 {
+    font-size: clamp(2rem, 7.5vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin: 0 0 1.5rem;
+    max-width: 16ch;
+  }
+  .hero p { max-width: 36rem; margin: 0 0 2rem; color: var(--muted); }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--btn-bg);
+    color: var(--btn-ink);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .cta-btn:hover { filter: brightness(1.08); }
+
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 3.5rem 0 1rem;
+  }
+  section p { max-width: 38rem; }
+
+  .project { padding: 1.5rem 0; }
+  .project + .project { border-top: 1px solid var(--rule); }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .project-head h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; }
+  .status { font-size: 0.9rem; font-weight: 500; color: var(--accent); white-space: nowrap; }
+  .status.quiet { color: var(--muted); }
+  .project p { margin: 0.4rem 0; }
+  .role { color: var(--muted); font-style: italic; font-size: 0.95rem; }
+
+  .terms { list-style: none; padding: 0; margin: 1.5rem 0 0; max-width: 38rem; }
+  .terms li { padding: 0.85rem 0; border-top: 1px solid var(--rule); }
+  .terms strong { font-weight: 800; }
+
+  .closing { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .closing h2 { margin-top: 0; font-size: 1.5rem; max-width: 24ch; }
+
+  footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="name">Tommy Ajiferuke</span>
+    <nav>
+      <a href="https://github.com/Tommkruix">GitHub</a>
+      <a href="https://www.linkedin.com/in/ajiferuke-oluwatomiwa-513335166">LinkedIn</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I build and ship AI&#8209;powered products end to end.</h1>
+    <p>Fixed scope, fixed price, weeks not months. 6+ years shipping production systems, 5 peer-reviewed publications in AI, NLP and health informatics.</p>
+    <a class="cta-btn" href="mailto:ajiferukeolatommy@gmail.com">Email me about your project</a>
+  </section>
+
+  <section>
+    <h2>What I do</h2>
+    <p>AI features and automation for startups and ops-heavy businesses: LLM integrations, natural-language interfaces over your data, workflow automation, and full MVP builds.</p>
+    <p>Most engagements start with a one-week paid pilot. You get working software, not a slide deck, and a clear picture of what the full build costs before you commit.</p>
+    <ul class="terms">
+      <li><strong>One flat price, agreed before work starts.</strong> No hourly meter, no surprise invoices. The number you agree to is the number you pay.</li>
+      <li><strong>You own everything.</strong> Code, repositories, documentation and credentials transfer to you in full on final payment. No lock-in, no licensing back to me.</li>
+      <li><strong>You see the work as it happens.</strong> Progress ships to a live preview you can open any day, not a weekly status email.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Proof I ship</h2>
+
+    <article class="project">
+      <div class="project-head">
+        <h3><a href="https://carrymego.com">CarryMeGo</a></h3>
+        <span class="status">Live in production, Nigeria</span>
+      </div>
+      <p>Peer-to-peer route-sharing delivery platform. Two-sided onboarding with identity verification, admin approval flows, payments via Paystack, and phased production releases.</p>
+      <p class="role">Solo: product spec, architecture, build, production launch.</p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3><a href="https://tomwiser.com">Tomwiser</a></h3>
+        <span class="status">Live, free</span>
+      </div>
+      <p>A weekly account of what a team worked on, with a link behind every claim, for the person who has to report the week. Reads GitHub and Google Calendar, delivers by email and Slack, and answers plain-language questions between accounts. Privacy by design: a person can be named in an answer, but a person cannot be the question. No monitoring.</p>
+      <p class="role">Solo: product, integrations, AI layer.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <p>6+ years building production software across startups and freelance. Recent client work includes AI projects for US companies: NLP pipelines, LLM-backed features and workflow automation. Research background: 5 peer-reviewed publications in AI, NLP and health informatics.</p>
+  </section>
+
+  <section class="closing">
+    <h2>Have an AI feature you need shipped?</h2>
+    <p>Send a short note about what you're building. I'll tell you whether it's a 1-week or 4-week job and what it costs.</p>
+    <a class="cta-btn" href="mailto:ajiferukeolatommy@gmail.com">Email me</a>
+  </section>
+
+  <footer>
+    <p>Tommy Ajiferuke (Oluwatomiwa Ajiferuke) &middot; Tomwiser LLC</p>
+  </footer>
+
+</div>
+</body>
+</html>
