@@ -1,43 +1,71 @@
 User-agent: *
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Googlebot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Bingbot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: DuckDuckBot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: GPTBot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: ChatGPT-User
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: OAI-SearchBot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: ClaudeBot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Claude-Web
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: anthropic-ai
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: PerplexityBot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Google-Extended
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Applebot
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 User-agent: Applebot-Extended
+Disallow: /privacy/
+Disallow: /terms/
 Allow: /
 
 Sitemap: https://tommkruix.github.io/sitemap.xml
